@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 MindGuard AI - Mental Health Monitoring System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-brain"></i>
+                <span>MindGuard AI</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#chatbot">AI Chat</a></li>
+                <li><a href="#privacy">Privacy</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>🧠 AI-Powered Mental Health Monitoring</h1>
+                <p>Monitor, detect, and support your mental wellness with advanced AI algorithms. Get early intervention and continuous tracking for better mental health outcomes.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('dashboard')">Start Monitoring</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('features')">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="brain-animation">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="data-points">
+                    <div class="point" style="--delay: 0s"></div>
+                    <div class="point" style="--delay: 0.5s"></div>
+                    <div class="point" style="--delay: 1s"></div>
+                    <div class="point" style="--delay: 1.5s"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>🔍 Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Multimodal Data Collection</h3>
+                    <p>Text input, voice analysis, facial expression recognition, and wearable data integration for comprehensive mental health monitoring.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Real-time Analysis</h3>
+                    <p>Advanced sentiment analysis, emotion detection, and pattern recognition for stress, anxiety, and mood monitoring.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Personalized Insights</h3>
+                    <p>AI-powered recommendations, wellness tips, and goal tracking tailored to your mental health journey.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Therapeutic Integration</h3>
+                    <p>CBT-based chatbot interactions and AI-assisted journaling for continuous therapeutic support.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Emergency Protocols</h3>
+                    <p>Advanced crisis detection with emergency contact options and trusted contact notifications.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Privacy & Security</h3>
+                    <p>GDPR and HIPAA compliant with end-to-end encryption and transparent data usage policies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard">
+        <div class="container">
+            <h2>📊 Your Mental Health Dashboard</h2>
+            <div class="dashboard-grid">
+                <div class="dashboard-card mood-tracker">
+                    <h3>Mood Tracking</h3>
+                    <div class="mood-input">
+                        <p>How are you feeling today?</p>
+                        <div class="mood-buttons">
+                            <button class="mood-btn" data-mood="very-sad">😢</button>
+                            <button class="mood-btn" data-mood="sad">😔</button>
+                            <button class="mood-btn" data-mood="neutral">😐</button>
+                            <button class="mood-btn" data-mood="happy">😊</button>
+                            <button class="mood-btn" data-mood="very-happy">😄</button>
+                        </div>
+                        <textarea id="mood-note" placeholder="Add a note about your mood..."></textarea>
+                        <button class="btn btn-primary" onclick="saveMood()">Save Mood</button>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card analytics">
+                    <h3>Weekly Analytics</h3>
+                    <div class="chart-container">
+                        <canvas id="moodChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card insights">
+                    <h3>AI Insights</h3>
+                    <div class="insight-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <p>Your mood patterns show improvement this week. Consider maintaining your current routine.</p>
+                    </div>
+                    <div class="insight-item">
+                        <i class="fas fa-heart"></i>
+                        <p>Regular exercise and good sleep are positively impacting your mental wellness.</p>
+                    </div>
+                </div>
+                
+                <div class="dashboard-card journal">
+                    <h3>Journal Entry</h3>
+                    <textarea id="journal-entry" placeholder="Write about your day, thoughts, or feelings..."></textarea>
+                    <button class="btn btn-secondary" onclick="saveJournal()">Save Entry</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chatbot Section -->
+    <section id="chatbot" class="chatbot-section">
+        <div class="container">
+            <h2>🤖 AI Mental Health Assistant</h2>
+            <div class="chatbot-container">
+                <div class="chatbot-header">
+                    <div class="bot-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="bot-info">
+                        <h3>MindGuard AI</h3>
+                        <p>Your personal mental health companion</p>
+                    </div>
+                </div>
+                <div class="chatbot-messages" id="chatbot-messages">
+                    <div class="message bot-message">
+                        <p>Hello! I'm here to support your mental health journey. How are you feeling today?</p>
+                    </div>
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" id="chat-input" placeholder="Type your message...">
+                    <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section id="privacy" class="privacy">
+        <div class="container">
+            <h2>🛡️ Privacy & Data Protection</h2>
+            <div class="privacy-content">
+                <div class="privacy-card">
+                    <h3>GDPR & HIPAA Compliant</h3>
+                    <p>We adhere to the highest standards of data protection and healthcare privacy regulations.</p>
+                </div>
+                <div class="privacy-card">
+                    <h3>End-to-End Encryption</h3>
+                    <p>All your data is encrypted both in transit and at rest, ensuring maximum security.</p>
+                </div>
+                <div class="privacy-card">
+                    <h3>Transparent Policies</h3>
+                    <p>Clear data usage policies with full user consent and control over personal information.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>📞 Get in Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Need Help?</h3>
+                    <p>If you're experiencing a mental health crisis, please contact:</p>
+                    <ul>
+                        <li>National Suicide Prevention Lifeline: 988</li>
+                        <li>Crisis Text Line: Text HOME to 741741</li>
+                        <li>Emergency Services: 911</li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <h3>Contact Us</h3>
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 MindGuard AI. All rights reserved. | Protecting your mental health with AI.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
